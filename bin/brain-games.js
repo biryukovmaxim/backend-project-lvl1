@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import defaultExport from '../src/index.js';
+import askName from '../src/index.js';
 
 console.log('Welcome to the Brain Games!');
-defaultExport();
+const name = askName();
+console.log(`Hello, ${name}!`);
