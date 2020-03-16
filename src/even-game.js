@@ -5,13 +5,13 @@ const isWinEvenGame = () => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  const isEven = (num) => Math.floor(num / 2) === 0;
+  const isEven = (num) => num % 2 === 0;
 
   let count = 0;
 
   const round = () => {
     const value = getRandomInt(0, 100);
-    const trueAnswer = isEven(value);
+    const trueAnswer = isEven(value) ? 'yes' : 'no';
     const answer = readlineSync.question(`Question:${value}`);
     if (answer === trueAnswer) {
       console.log('Correct!');
@@ -22,7 +22,7 @@ const isWinEvenGame = () => {
     }
   };
 
-  while ((count === 3) || (count === -1)) round();
+  while ((count !== 3) && (count !== -1)) round();
 
   if (count === 3) return true;
   return false;
