@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import random from '../auxuliary.js';
 
-const gameCalc = () => {
+const gameCalc = (needRules) => {
   const [firstNum, secondNum, numOfOperation] = [random(), random(), random(0, 2)];
 
   let operation;
@@ -19,7 +19,8 @@ const gameCalc = () => {
     default: break;
   }
 
-  console.log(`What is the result of the expression?\nQuestion: ${firstNum} ${operation.operationSymbol} ${secondNum}`);
+  if (needRules) console.log('What is the result of the expression?');
+  console.log(`Question: ${firstNum} ${operation.operationSymbol} ${secondNum}`);
   const trueAnswer = operation.operationFunction(firstNum, secondNum);
   const answer = Number(readlineSync.question('Your answer: '));
   if (answer === trueAnswer) {
