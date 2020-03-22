@@ -13,4 +13,9 @@ $ make install
 ```sh
 $ make even
 ```
+## Run calc-game
+
+```sh
+$ make calc
+```
 
