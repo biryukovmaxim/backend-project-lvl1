@@ -1,13 +1,11 @@
 import readlineSync from 'readline-sync';
+import random from '../auxuliary.js';
 
-const gameEven = () => {
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const gameEven = (needRules = false) => {
+  if (needRules) console.log('Answer "yes" if the number is even, otherwise answer "no".');
   const isEven = (num) => num % 2 === 0;
 
-  const value = getRandomInt(0, 100);
+  const value = random();
   const trueAnswer = isEven(value) ? 'yes' : 'no';
   const answer = readlineSync.question(`Question: ${value} \nYour answer: `);
   if (answer === trueAnswer) {
