@@ -25,3 +25,9 @@ $ make calc
 $ make gcd
 ```
 
+## Run progression-game
+
+```sh
+$ make progression
+```
+

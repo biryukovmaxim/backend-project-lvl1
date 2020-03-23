@@ -20,3 +20,7 @@ calc:
 gcd:
 	node bin/brain-gcd.js
 
+progression:
+	node bin/brain-progression.js
+
+

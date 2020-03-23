@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import gameEven from './games/even-game.js';
 import gameCalc from './games/calc-game.js';
 import gameGcd from './games/gcd-game.js';
+import gameProgression from './games/progression-game.js';
 
 const game = (gameName) => {
   let functionGame;
@@ -24,6 +25,9 @@ const game = (gameName) => {
     case 'gcd':
       functionGame = (params) => gameGcd(params);
       break;
+    case 'progression':
+      functionGame = (params) => gameProgression(params);
+      break;
     default:
       functionGame = () => {};
       break;
@@ -35,7 +39,7 @@ const game = (gameName) => {
 
   while (win && count < 3) {
     win = count === 0 ? functionGame(true) : functionGame(false);
-    count += 1;
+    if (win) count += 1;
   }
 
   if (count === 3) console.log(`Congratulations, ${name}!`);
