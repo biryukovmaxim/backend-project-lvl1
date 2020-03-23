@@ -19,3 +19,9 @@ $ make even
 $ make calc
 ```
 
+## Run gcd-game
+
+```sh
+$ make gcd
+```
+

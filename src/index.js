@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 import gameEven from './games/even-game.js';
 import gameCalc from './games/calc-game.js';
+import gameGcd from './games/gcd-game.js';
 
 const game = (gameName) => {
   let functionGame;
@@ -19,6 +20,9 @@ const game = (gameName) => {
       break;
     case 'calc':
       functionGame = (params) => gameCalc(params);
+      break;
+    case 'gcd':
+      functionGame = (params) => gameGcd(params);
       break;
     default:
       functionGame = () => {};
