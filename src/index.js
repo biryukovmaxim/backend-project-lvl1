@@ -3,6 +3,7 @@ import gameEven from './games/even-game.js';
 import gameCalc from './games/calc-game.js';
 import gameGcd from './games/gcd-game.js';
 import gameProgression from './games/progression-game.js';
+import gamePrime from './games/prime-game.js';
 
 const game = (gameName) => {
   let functionGame;
@@ -27,6 +28,9 @@ const game = (gameName) => {
       break;
     case 'progression':
       functionGame = (params) => gameProgression(params);
+      break;
+    case 'prime':
+      functionGame = (params) => gamePrime(params);
       break;
     default:
       functionGame = () => {};
