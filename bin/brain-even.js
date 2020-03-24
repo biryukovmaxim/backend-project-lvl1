@@ -1,4 +1,4 @@
 
-import startGame from '../src/index.js';
+import startGame from '../src/games/even-game.js';
 
-startGame('even');
+startGame();

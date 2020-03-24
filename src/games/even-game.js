@@ -1,5 +1,8 @@
 import readlineSync from 'readline-sync';
 import random from '../auxuliary.js';
+// eslint-disable-next-line import/no-cycle
+import startEngine from '../index.js';
+
 
 const gameEven = (needRules = false) => {
   if (needRules) console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -16,5 +19,8 @@ const gameEven = (needRules = false) => {
   return false;
 };
 
+const startGame = () => {
+  startEngine(gameEven);
+}
 
-export default gameEven;
+export default startGame;
