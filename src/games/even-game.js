@@ -20,6 +20,6 @@ const gameEven = (needRules = false) => {
 
 const startGameEven = () => {
   startEngine(gameEven);
-}
+};
 
 export default startGameEven;
