@@ -18,8 +18,8 @@ const gameEven = (needRules = false) => {
   return false;
 };
 
-const startGame = () => {
+const startGameEven = () => {
   startEngine(gameEven);
 }
 
-export default startGame;
+export default startGameEven;

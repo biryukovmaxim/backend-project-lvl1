@@ -1,4 +1,3 @@
+import startGame from '../src/games/progression-game.js';
 
-import startGame from '../src/index.js';
-
-startGame('progression');
+startGame();

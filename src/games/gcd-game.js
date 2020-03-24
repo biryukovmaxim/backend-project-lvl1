@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 import random from '../auxuliary.js';
+import startEngine from '../index.js';
+
 
 const gameGcd = (needRules) => {
   const [firstNum, secondNum] = [random(), random()];
@@ -17,5 +19,8 @@ const gameGcd = (needRules) => {
   console.log(`"${answer}" is wrong answer ;(. Correct answer was "${trueAnswer}"`);
   return false;
 };
+const startGameGcd = () => {
+  startEngine(gameGcd);
+};
 
-export default gameGcd;
+export default startGameGcd;

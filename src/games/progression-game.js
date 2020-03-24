@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import random from '../auxuliary.js';
+import startEngine from '../index.js';
 
 const gameProgression = (needRules) => {
   const [a0, delta, substitutionNumber] = [random(), random(), random(0, 10)];
@@ -21,4 +22,8 @@ const gameProgression = (needRules) => {
   return false;
 };
 
-export default gameProgression;
+const startGameProgression = () => {
+  startEngine(gameProgression);
+};
+
+export default startGameProgression;

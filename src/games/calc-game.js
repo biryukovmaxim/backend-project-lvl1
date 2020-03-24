@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import random from '../auxuliary.js';
+import startEngine from '../index.js';
 
 const gameCalc = (needRules) => {
   const [firstNum, secondNum, numOfOperation] = [random(), random(), random(0, 2)];
@@ -31,4 +32,8 @@ const gameCalc = (needRules) => {
   return false;
 };
 
-export default gameCalc;
+const startGameCalc = () => {
+  startEngine(gameCalc);
+};
+
+export default startGameCalc;
