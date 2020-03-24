@@ -8,11 +8,7 @@ import gamePrime from './games/prime-game.js';
 const game = (gameName) => {
   let functionGame;
 
-  const askName = () => {
-    const answer = readlineSync.question('May I have your name?: ');
-    return answer;
-  };
-  const name = askName();
+  const name = readlineSync.question('May I have your name?: ');
   console.log(`Hello, ${name}`);
 
 
