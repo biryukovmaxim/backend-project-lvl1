@@ -1,6 +1,5 @@
 import readlineSync from 'readline-sync';
 import random from '../auxuliary.js';
-// eslint-disable-next-line import/no-cycle
 import startEngine from '../index.js';
 
 
