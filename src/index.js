@@ -12,7 +12,6 @@ const gameEngine = (game) => {
   while (win && count < 3) {
     const questionObject = transform(game.params);
     const question = questionObject.question.join(' ');
-    console.log(game.function(questionObject.forGameFunction));
     const answer = readlineSync.question(`Question: ${question} \nYour answer: `);
     const trueAnswer = String(game.function(questionObject.forGameFunction));
     win = (trueAnswer === answer);
