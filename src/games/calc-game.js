@@ -1,39 +1,31 @@
-import readlineSync from 'readline-sync';
-import random from '../auxuliary.js';
 import startEngine from '../index.js';
 
-const gameCalc = (needRules) => {
-  const [firstNum, secondNum, numOfOperation] = [random(), random(), random(0, 2)];
-
-  let operation;
-  // eslint-disable-next-line no-tabs
-  switch (numOfOperation)	{
-    case 0:
-      operation = { operationSymbol: '+', operationFunction: (a, b) => a + b };
+const gameCalc = (params) => {
+  let result;
+  switch (params[1]) {
+    case '+':
+      result = params[0] + params[2];
       break;
-    case 1:
-      operation = { operationSymbol: '-', operationFunction: (a, b) => a - b };
+    case '-':
+      result = params[0] - params[2];
       break;
-    case 2:
-      operation = { operationSymbol: '*', operationFunction: (a, b) => a * b };
+    case '*':
+      result = params[0] * params[2];
       break;
-    default: break;
+    default:
+      return 'error';
   }
-
-  if (needRules) console.log('What is the result of the expression?');
-  console.log(`Question: ${firstNum} ${operation.operationSymbol} ${secondNum}`);
-  const trueAnswer = operation.operationFunction(firstNum, secondNum);
-  const answer = Number(readlineSync.question('Your answer: '));
-  if (answer === trueAnswer) {
-    console.log('Correct!');
-    return true;
-  }
-  console.log(`"${answer}" is wrong answer ;(. Correct answer was "${trueAnswer}"`);
-  return false;
+  return result;
 };
 
 const startGameCalc = () => {
-  startEngine(gameCalc);
+  startEngine({
+    rule: 'What is the result of the expression?',
+    function: gameCalc,
+    params: [{ min: 0, max: 100, type: 'number' },
+      { min: 0, max: 2, type: 'mathSymbol' },
+      { min: 0, max: 100, type: 'number' }],
+  });
 };
 
 export default startGameCalc;

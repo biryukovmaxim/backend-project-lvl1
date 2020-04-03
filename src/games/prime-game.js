@@ -1,10 +1,7 @@
-import readlineSync from 'readline-sync';
-import random from '../auxuliary.js';
 import startEngine from '../index.js';
 
-const gamePrime = (needRules = false) => {
-  if (needRules) console.log('Answer "yes" if given number is prime. Otherwise answer "no".\n');
-  function isPrime(n) {
+const gamePrime = (params) => {
+  const isPrime = (n) => {
     if (n < 2) {
       return false;
     } if (n === 2) {
@@ -21,21 +18,15 @@ const gamePrime = (needRules = false) => {
     }
 
     return true;
-  }
-
-  const value = random();
-  const trueAnswer = isPrime(value) ? 'yes' : 'no';
-  const answer = readlineSync.question(`Question: ${value} \nYour answer: `);
-  if (answer === trueAnswer) {
-    console.log('Correct!');
-    return true;
-  }
-  console.log(`"${answer}" is wrong answer ;(. Correct answer was "${trueAnswer}"`);
-  return false;
+  };
+  return isPrime(params[0]) ? 'yes' : 'no';
 };
 
 const startGamePrime = () => {
-  startEngine(gamePrime);
+  startEngine({
+    rule: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+    function: gamePrime,
+    params: [{ min: 0, max: 100, type: 'number' }],
+  });
 };
-
 export default startGamePrime;

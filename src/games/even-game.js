@@ -1,25 +1,17 @@
-import readlineSync from 'readline-sync';
-import random from '../auxuliary.js';
 import startEngine from '../index.js';
 
 
-const gameEven = (needRules = false) => {
-  if (needRules) console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const gameEven = (params) => {
   const isEven = (num) => num % 2 === 0;
-
-  const value = random();
-  const trueAnswer = isEven(value) ? 'yes' : 'no';
-  const answer = readlineSync.question(`Question: ${value} \nYour answer: `);
-  if (answer === trueAnswer) {
-    console.log('Correct!');
-    return true;
-  }
-  console.log(`"${answer}" is wrong answer ;(. Correct answer was "${trueAnswer}"`);
-  return false;
+  return isEven(params[0]) ? 'yes' : 'no';
 };
 
 const startGameEven = () => {
-  startEngine(gameEven);
+  startEngine({
+    rule: 'Answer "yes" if the number is even, otherwise answer "no".',
+    function: gameEven,
+    params: [{ min: 0, max: 100, type: 'number' }],
+  });
 };
 
 export default startGameEven;
