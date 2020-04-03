@@ -1,7 +1,7 @@
 {
   "name": "backend-project-lvl1",
   "version": "1.0.0",
-  "description": "",
+  "description": "project with some simple math/braingames",
   "main": "src/index.js",
   "bin": {
     "brain-even": "bin/brain-even.js",
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/biryukovmaxim/backend-project-lvl1.git"
   },
-  "author": "",
+  "author": "Maxim Biryukov, biryukov.maxim.vladimirovich@yandex.ru",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/biryukovmaxim/backend-project-lvl1/issues"
