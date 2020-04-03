@@ -7,33 +7,39 @@
 ```sh
 $ make install
 ```
+https://asciinema.org/a/316311
 
 ## Run even-game
 
 ```sh
 $ make even
 ```
+https://asciinema.org/a/316312
 ## Run calc-game
 
 ```sh
 $ make calc
 ```
+https://asciinema.org/a/316313
 
 ## Run gcd-game
 
 ```sh
 $ make gcd
 ```
+https://asciinema.org/a/316315
 
 ## Run progression-game
 
 ```sh
 $ make progression
 ```
+https://asciinema.org/a/316317
 
 ## Run prime-game
 
 ```sh
 $ make prime
 ```
+https://asciinema.org/a/316316
 
