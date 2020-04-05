@@ -1,4 +1,5 @@
 import startEngine from '../index.js';
+import makeObject from '../makeObject';
 
 const isPrime = (n) => {
   if (n < 2) {
@@ -21,10 +22,10 @@ const isPrime = (n) => {
 const gamePrime = (params) => (isPrime(params[0]) ? 'yes' : 'no');
 
 const startGamePrime = () => {
-  startEngine({
-    rule: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-    function: gamePrime,
-    params: [{ min: 0, max: 100, type: 'number' }],
-  });
+  const [rule, gameFunction, params] = ['Answer "yes" if given number is prime. Otherwise answer "no".',
+    gamePrime,
+    [{ min: 0, max: 100, type: 'number' }]];
+
+  startEngine(makeObject(rule, gameFunction, params));
 };
 export default startGamePrime;
