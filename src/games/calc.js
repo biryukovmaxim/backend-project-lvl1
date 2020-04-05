@@ -15,12 +15,13 @@ const gameCalc = (params) => {
     default:
       return 'error';
   }
-  return result;
+  return String(result);
 };
+const rules = 'What is the result of the expression?';
 
 const startGameCalc = () => {
   startEngine({
-    rule: 'What is the result of the expression?',
+    rule: rules,
     function: gameCalc,
     params: [{ min: 0, max: 100, type: 'number' },
       { min: 0, max: 2, type: 'mathSymbol' },

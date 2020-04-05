@@ -18,11 +18,13 @@ const isPrime = (n) => {
   return true;
 };
 
+const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 const gamePrime = (params) => (isPrime(params[0]) ? 'yes' : 'no');
 
 const startGamePrime = () => {
   startEngine({
-    rule: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+    rule: rules,
     function: gamePrime,
     params: [{ min: 0, max: 100, type: 'number' }],
   });

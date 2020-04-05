@@ -2,7 +2,7 @@ import startEngine from '../index.js';
 
 const gameProgression = (params) => {
   const [a0, delta, substitutionNumber] = params;
-  return a0 + delta * substitutionNumber;
+  return String(a0 + delta * substitutionNumber);
 };
 
 const startGameProgression = () => {

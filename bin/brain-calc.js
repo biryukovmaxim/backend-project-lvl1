@@ -1,3 +1,3 @@
-import startGame from '../src/games/calc-game.js';
+import startGame from '../src/games/calc.js';
 
 startGame();

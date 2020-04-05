@@ -1,27 +1,32 @@
 import readlineSync from 'readline-sync';
 import transform from './auxuliary.js';
 
+const congrats = (result, name) => {
+  if (result) return `Congratulations, ${name}!`;
+  return `Let's try again, ${name}!`;
+};
+
 const gameEngine = (game) => {
+  console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name?: ');
   console.log(`Hello, ${name}`);
-
-  let count = 0;
-  let win = true;
   console.log(game.rule);
+  let resultOfGame = true;
 
-  while (win && count < 3) {
+  for (let [count, win] = [0, true]; (win && count < 3); count += 1) {
     const questionObject = transform(game.params);
     const question = questionObject.question.join(' ');
     const answer = readlineSync.question(`Question: ${question} \nYour answer: `);
-    const trueAnswer = String(game.function(questionObject.forGameFunction));
+    const trueAnswer = game.function(questionObject.forGameFunction);
     win = (trueAnswer === answer);
     if (win) {
-      count += 1;
       console.log('Correct!');
-    } else console.log(`"${answer}" is wrong answer ;(. Correct answer was "${trueAnswer}".\nLet's try again, ${name}!`);
+    } else {
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${trueAnswer}".`);
+      resultOfGame = false;
+    }
   }
-
-  if (count === 3) console.log(`Congratulations, ${name}!`);
+  console.log(congrats(resultOfGame, name));
 };
 
 export default gameEngine;
