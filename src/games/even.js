@@ -1,17 +1,16 @@
 import startEngine from '../index.js';
 
-const gcd = (x, y) => (!y ? x : gcd(y, x % y));
+const isEven = (num) => num % 2 === 0;
 
-const gameGcd = (params) => String(gcd(params[0], params[1]));
+const gameEven = (params) => (isEven(params[0]) ? 'yes' : 'no');
 
-const rules = 'Find the greatest common divisor of given numbers.';
+const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const startGameGcd = () => {
+const startGameEven = () => {
   startEngine({
     rule: rules,
-    function: gameGcd,
-    params: [{ min: 0, max: 100, type: 'number' },
-      { min: 0, max: 100, type: 'number' }],
+    function: gameEven,
+    params: [{ min: 0, max: 100, type: 'number' }],
   });
 };
-export default startGameGcd;
+export default startGameEven;
