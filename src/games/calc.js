@@ -1,5 +1,19 @@
 import startEngine from '../index.js';
 
+
+
+    switch (caseNumber) {
+      case 0:
+        return '+';
+      case 1:
+        return '-';
+      case 2:
+        return '*';
+      default:
+        break;
+    }
+
+
 const gameCalc = (params) => {
   let result;
   switch (params[1]) {

@@ -1,5 +1,14 @@
 import startEngine from '../index.js';
 
+const makeProgression = (array) => {
+  const [a0, delta, substitutionNumber] = array;
+  const progressionArray = [];
+  for (let i = 0; i < 10; i += 1) {
+    progressionArray[i] = (i === substitutionNumber) ? '..' : a0 + delta * i;
+  }
+  return progressionArray;
+};
+
 const gameProgression = (params) => {
   const [a0, delta, substitutionNumber] = params;
   return String(a0 + delta * substitutionNumber);
