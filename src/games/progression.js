@@ -1,4 +1,5 @@
 import startEngine from '../index.js';
+import random from '../auxuliary.js';
 
 const makeProgression = (array) => {
   const [a0, delta, substitutionNumber] = array;
@@ -9,18 +10,17 @@ const makeProgression = (array) => {
   return progressionArray;
 };
 
-const gameProgression = (params) => {
-  const [a0, delta, substitutionNumber] = params;
-  return String(a0 + delta * substitutionNumber);
+const gameProgression = () => {
+  const [a0, delta, substitutionNumber] = [random(0, 100), random(0, 100), random(0, 9)];
+  const question = makeProgression([a0, delta, substitutionNumber]).join(' ');
+  return [question,
+    String(a0 + delta * substitutionNumber)];
 };
 
 const startGameProgression = () => {
   startEngine({
-    rule: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-    function: gameProgression,
-    params: [{ min: 0, max: 100, type: 'progressNumber' },
-      { min: 0, max: 100, type: 'progressNumber' },
-      { min: 0, max: 10, type: 'progressNumber' }],
+    rule: 'What number is missing in the progression?',
+    gameFunc: gameProgression,
   });
 };
 export default startGameProgression;

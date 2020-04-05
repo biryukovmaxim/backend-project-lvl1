@@ -1,20 +1,22 @@
 import startEngine from '../index.js';
+import random from '../auxuliary.js';
 
+const numToSym = (num) => {
+  switch (num) {
+    case 0:
+      return '+';
+    case 1:
+      return '-';
+    case 2:
+      return '*';
+    default:
+      break;
+  }
+  return NaN;
+};
 
-
-    switch (caseNumber) {
-      case 0:
-        return '+';
-      case 1:
-        return '-';
-      case 2:
-        return '*';
-      default:
-        break;
-    }
-
-
-const gameCalc = (params) => {
+const gameCalc = () => {
+  const params = [random(0, 100), numToSym(random(0, 2)), random(0, 100)];
   let result;
   switch (params[1]) {
     case '+':
@@ -29,17 +31,14 @@ const gameCalc = (params) => {
     default:
       return 'error';
   }
-  return String(result);
+  return [params.join(' '), String(result)];
 };
 const rules = 'What is the result of the expression?';
 
 const startGameCalc = () => {
   startEngine({
     rule: rules,
-    function: gameCalc,
-    params: [{ min: 0, max: 100, type: 'number' },
-      { min: 0, max: 2, type: 'mathSymbol' },
-      { min: 0, max: 100, type: 'number' }],
+    gameFunc: gameCalc,
   });
 };
 export default startGameCalc;

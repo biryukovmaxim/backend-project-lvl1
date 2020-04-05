@@ -1,4 +1,5 @@
 import startEngine from '../index.js';
+import random from '../auxuliary.js';
 
 const isPrime = (n) => {
   if (n < 2) {
@@ -20,13 +21,16 @@ const isPrime = (n) => {
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const gamePrime = (params) => (isPrime(params[0]) ? 'yes' : 'no');
+const gamePrime = () => {
+  const number = random(0, 100);
+  const result = isPrime(number) ? 'yes' : 'no';
+  return [number, result];
+};
 
 const startGamePrime = () => {
   startEngine({
     rule: rules,
-    function: gamePrime,
-    params: [{ min: 0, max: 100, type: 'number' }],
+    gameFunc: gamePrime,
   });
 };
 export default startGamePrime;
