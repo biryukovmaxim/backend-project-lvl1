@@ -1,10 +1,8 @@
 import startEngine from '../index.js';
 
+const gcd = (x, y) => (!y ? x : gcd(y, x % y));
 
-const gameGcd = (params) => {
-  const gcd = (x, y) => (!y ? x : gcd(y, x % y));
-  return gcd(params[0], params[1]);
-};
+const gameGcd = (params) => gcd(params[0], params[1]);
 
 const startGameGcd = () => {
   startEngine({

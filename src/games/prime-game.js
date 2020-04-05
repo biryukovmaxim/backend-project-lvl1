@@ -1,26 +1,24 @@
 import startEngine from '../index.js';
 
-const gamePrime = (params) => {
-  const isPrime = (n) => {
-    if (n < 2) {
-      return false;
-    } if (n === 2) {
-      return true;
-    }
-
-    let i = 2;
-    const limit = Math.sqrt(n);
-    while (i <= limit) {
-      if (n % i === 0) {
-        return false;
-      }
-      i += 1;
-    }
-
+const isPrime = (n) => {
+  if (n < 2) {
+    return false;
+  } if (n === 2) {
     return true;
-  };
-  return isPrime(params[0]) ? 'yes' : 'no';
+  }
+
+  let i = 2;
+  const limit = Math.sqrt(n);
+  while (i <= limit) {
+    if (n % i === 0) {
+      return false;
+    }
+    i += 1;
+  }
+  return true;
 };
+
+const gamePrime = (params) => (isPrime(params[0]) ? 'yes' : 'no');
 
 const startGamePrime = () => {
   startEngine({

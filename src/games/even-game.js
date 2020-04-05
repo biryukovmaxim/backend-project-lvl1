@@ -1,10 +1,8 @@
 import startEngine from '../index.js';
 
+const isEven = (num) => num % 2 === 0;
 
-const gameEven = (params) => {
-  const isEven = (num) => num % 2 === 0;
-  return isEven(params[0]) ? 'yes' : 'no';
-};
+const gameEven = (params) => (isEven(params[0]) ? 'yes' : 'no');
 
 const startGameEven = () => {
   startEngine({

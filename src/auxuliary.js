@@ -1,15 +1,15 @@
+const getRandomInt = (min, max) => Number(Math.floor(Math.random() * (max - min + 1)) + min);
+
+const makeProgression = (array) => {
+  const [a0, delta, substitutionNumber] = array;
+  const progressionArray = [];
+  for (let i = 0; i < 10; i += 1) {
+    progressionArray[i] = (i === substitutionNumber) ? '..' : a0 + delta * i;
+  }
+  return progressionArray;
+};
 const transform = (params) => {
   let progression = false;
-  const getRandomInt = (min, max) => Number(Math.floor(Math.random() * (max - min + 1)) + min);
-
-  const makeProgression = (array) => {
-    const [a0, delta, substitutionNumber] = array;
-    const progressionArray = [];
-    for (let i = 0; i < 10; i += 1) {
-      progressionArray[i] = (i === substitutionNumber) ? '..' : a0 + delta * i;
-    }
-    return progressionArray;
-  };
 
   const questionArray = params.map((element) => {
     if (element.type === 'mathSymbol') {
@@ -43,6 +43,5 @@ const transform = (params) => {
     forGameFunction: questionArray,
   };
 };
-
 
 export default transform;
