@@ -19,13 +19,14 @@ const gameCalc = (params) => {
 };
 
 const startGameCalc = () => {
-  startEngine({
+  const objectForEngine = {
     rule: 'What is the result of the expression?',
     function: gameCalc,
     params: [{ min: 0, max: 100, type: 'number' },
       { min: 0, max: 2, type: 'mathSymbol' },
       { min: 0, max: 100, type: 'number' }],
-  });
+  };
+  startEngine(objectForEngine);
 };
 
 export default startGameCalc;

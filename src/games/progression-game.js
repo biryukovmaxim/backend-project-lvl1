@@ -6,13 +6,14 @@ const gameProgression = (params) => {
 };
 
 const startGameProgression = () => {
-  startEngine({
+  const objectForEngine = {
     rule: 'Answer "yes" if given number is prime. Otherwise answer "no".',
     function: gameProgression,
     params: [{ min: 0, max: 100, type: 'progressNumber' },
       { min: 0, max: 100, type: 'progressNumber' },
       { min: 0, max: 10, type: 'progressNumber' }],
-  });
+  };
+  startEngine(objectForEngine);
 };
 
 export default startGameProgression;
