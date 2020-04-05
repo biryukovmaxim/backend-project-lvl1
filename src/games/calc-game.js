@@ -1,5 +1,4 @@
 import startEngine from '../index.js';
-import makeObject from '../makeObject.js';
 
 const gameCalc = (params) => {
   let result;
@@ -20,13 +19,12 @@ const gameCalc = (params) => {
 };
 
 const startGameCalc = () => {
-  const [rule, gameFunction, params] = ['What is the result of the expression?',
-    gameCalc,
-    [{ min: 0, max: 100, type: 'number' },
+  startEngine({
+    rule: 'What is the result of the expression?',
+    function: gameCalc,
+    params: [{ min: 0, max: 100, type: 'number' },
       { min: 0, max: 2, type: 'mathSymbol' },
-      { min: 0, max: 100, type: 'number' }]];
-
-  startEngine(makeObject(rule, gameFunction, params));
+      { min: 0, max: 100, type: 'number' }],
+  });
 };
-
 export default startGameCalc;
