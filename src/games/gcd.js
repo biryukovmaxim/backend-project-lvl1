@@ -1,5 +1,5 @@
 import startEngine from '../index.js';
-import random from '../auxuliary.js';
+import random from '../random.js';
 
 const gcd = (x, y) => (!y ? x : gcd(y, x % y));
 

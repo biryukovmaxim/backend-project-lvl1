@@ -1,11 +1,12 @@
 import startEngine from '../index.js';
-import random from '../auxuliary.js';
+import random from '../random.js';
+import boolToYes from '../boolToYes.js';
 
 const isEven = (num) => num % 2 === 0;
 
 const gameEven = () => {
   const number = random(0, 100);
-  const answer = isEven(number) ? 'yes' : 'no';
+  const answer = boolToYes(isEven(number));
   return [number, answer];
 };
 
