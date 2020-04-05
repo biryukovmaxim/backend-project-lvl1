@@ -1,14 +1,10 @@
 import startEngine from '../index.js';
 import random from '../random.js';
-import boolToYes from '../boolToYes.js';
+import checkAndAnswer from '../checkAndAnswer.js';
 
 const isEven = (num) => num % 2 === 0;
 
-const gameEven = () => {
-  const number = random(0, 100);
-  const answer = boolToYes(isEven(number));
-  return [number, answer];
-};
+const gameEven = () => checkAndAnswer(random(0, 100), isEven);
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 

@@ -1,6 +1,6 @@
 import startEngine from '../index.js';
 import random from '../random.js';
-import boolToYes from '../boolToYes.js';
+import checkAndAnswer from '../checkAndAnswer.js';
 
 const isPrime = (n) => {
   if (n < 2) {
@@ -22,11 +22,7 @@ const isPrime = (n) => {
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const gamePrime = () => {
-  const number = random(0, 100);
-  const result = boolToYes(isPrime(number));
-  return [number, result];
-};
+const gamePrime = () => checkAndAnswer(random(0, 100), isPrime);
 
 const startGamePrime = () => {
   startEngine({
