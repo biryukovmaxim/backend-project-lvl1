@@ -33,12 +33,9 @@ const gameCalc = () => {
   }
   return [params.join(' '), String(result)];
 };
-const rules = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const startGameCalc = () => {
-  startEngine({
-    rule: rules,
-    gameFunc: gameCalc,
-  });
+  startEngine(description, gameCalc);
 };
 export default startGameCalc;

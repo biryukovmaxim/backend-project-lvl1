@@ -20,14 +20,11 @@ const isPrime = (n) => {
   return true;
 };
 
-const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const gamePrime = () => checkAndAnswer(random(0, 100), isPrime);
 
 const startGamePrime = () => {
-  startEngine({
-    rule: rules,
-    gameFunc: gamePrime,
-  });
+  startEngine(description, gamePrime);
 };
 export default startGamePrime;

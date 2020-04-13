@@ -17,10 +17,9 @@ const gameProgression = () => {
     String(a0 + delta * substitutionNumber)];
 };
 
+const description = 'What number is missing in the progression?';
+
 const startGameProgression = () => {
-  startEngine({
-    rule: 'What number is missing in the progression?',
-    gameFunc: gameProgression,
-  });
+  startEngine(description, gameProgression);
 };
 export default startGameProgression;

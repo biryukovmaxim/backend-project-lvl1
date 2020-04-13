@@ -6,12 +6,9 @@ const isEven = (num) => num % 2 === 0;
 
 const gameEven = () => checkAndAnswer(random(0, 100), isEven);
 
-const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const startGameEven = () => {
-  startEngine({
-    rule: rules,
-    gameFunc: gameEven,
-  });
+  startEngine(description, gameEven);
 };
 export default startGameEven;
