@@ -16,9 +16,9 @@ const gameEngine = (description, gameFunc) => {
       console.log('Correct!');
     } else {
       console.log(`"${answer}" is wrong answer ;(. Correct answer was "${trueAnswer}".`);
+      console.log(`Let's try again, ${name}!`);
     }
-    if (count === roundsToWin) console.log(`Congratulations, ${name}!`);
-    if (!win) console.log(`Let's try again, ${name}!`);
+    if (count === roundsToWin - 1 && win) console.log(`Congratulations, ${name}!`);
   }
 };
 
