@@ -1,13 +1,13 @@
 import startEngine from '../index.js';
-import random from '../random.js';
+import getRandomInt from '../utils.js';
+
+
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (n) => {
   if (n < 2) {
     return false;
-  } if (n === 2) {
-    return true;
   }
-
   let i = 2;
   const limit = Math.sqrt(n);
   while (i <= limit) {
@@ -19,12 +19,11 @@ const isPrime = (n) => {
   return true;
 };
 
-const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
 const gamePrime = () => {
-  const num = random(0, 100);
+  const num = getRandomInt(0, 100);
   const answer = isPrime(num) ? 'yes' : 'no';
-  return [num, answer];
+  const question = String(num);
+  return [question, answer];
 };
 
 const startGamePrime = () => {
