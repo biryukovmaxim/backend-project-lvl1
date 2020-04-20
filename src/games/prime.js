@@ -19,7 +19,7 @@ const isPrime = (n) => {
   return true;
 };
 
-const gamePrime = () => {
+const getGamePrimePair = () => {
   const num = getRandomInt(0, 100);
   const answer = isPrime(num) ? 'yes' : 'no';
   const question = String(num);
@@ -27,6 +27,6 @@ const gamePrime = () => {
 };
 
 const startGamePrime = () => {
-  startEngine(description, gamePrime);
+  startEngine(description, getGamePrimePair);
 };
 export default startGamePrime;
