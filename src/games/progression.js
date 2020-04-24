@@ -1,29 +1,28 @@
-import startEngine from '../index.js';
+import playGame from '../index.js';
 import getRandomInt from '../utils.js';
 
 const progressionLength = 10;
 
 const description = 'What number is missing in the progression?';
 
-const makeProgressionQuestion = (array) => {
-  const [a0, delta, substitutionNumber] = array;
-  const progression = [];
+const makeQuestion = (sourceNumber, delta, indexOfSub) => {
+  const question = [];
   for (let i = 0; i < progressionLength; i += 1) {
-    progression[i] = (i === substitutionNumber) ? '..' : a0 + delta * i;
+    question[i] = (i === indexOfSub) ? '..' : sourceNumber + delta * i;
   }
-  return progression;
+  return question;
 };
 
-const getGameProgressionPair = () => {
-  const a0 = getRandomInt(0, 100);
+const getGameData = () => {
+  const sourceNumber = getRandomInt(0, 100);
   const delta = getRandomInt(0, 100);
-  const substitutionNumber = getRandomInt(0, progressionLength - 1);
-  const question = makeProgressionQuestion([a0, delta, substitutionNumber]).join(' ');
-  const answer = String(a0 + delta * substitutionNumber);
+  const indexOfSub = getRandomInt(0, progressionLength - 1);
+  const question = makeQuestion(sourceNumber, delta, indexOfSub);
+  const answer = String(sourceNumber + delta * indexOfSub);
   return [question, answer];
 };
 
 const startGameProgression = () => {
-  startEngine(description, getGameProgressionPair);
+  playGame(description, getGameData);
 };
 export default startGameProgression;

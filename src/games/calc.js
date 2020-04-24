@@ -1,17 +1,18 @@
-import startEngine from '../index.js';
+import playGame from '../index.js';
 import getRandomInt from '../utils.js';
 
 const description = 'What is the result of the expression?';
 
-const operationCount = 3;
 
-const mathExpressions = {
-  0: { getResult: (a, b) => a + b, operationSym: '+' },
-  1: { getResult: (a, b) => a - b, operationSym: '-' },
-  2: { getResult: (a, b) => a * b, operationSym: '*' },
-};
+const mathExpressions = [
+  { getResult: (a, b) => a + b, operationSym: '+' },
+  { getResult: (a, b) => a - b, operationSym: '-' },
+  { getResult: (a, b) => a * b, operationSym: '*' },
+];
 
-const getGameEvenPair = () => {
+const operationCount = mathExpressions.length;
+
+const getGameData = () => {
   const num1 = getRandomInt(0, 100);
   const num2 = getRandomInt(0, 100);
   const operationID = getRandomInt(0, operationCount - 1);
@@ -23,6 +24,6 @@ const getGameEvenPair = () => {
 };
 
 const startGameCalc = () => {
-  startEngine(description, getGameEvenPair);
+  playGame(description, getGameData);
 };
 export default startGameCalc;

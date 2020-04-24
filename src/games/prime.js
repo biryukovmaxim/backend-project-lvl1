@@ -1,4 +1,4 @@
-import startEngine from '../index.js';
+import playGame from '../index.js';
 import getRandomInt from '../utils.js';
 
 
@@ -19,7 +19,7 @@ const isPrime = (n) => {
   return true;
 };
 
-const getGamePrimePair = () => {
+const getGameData = () => {
   const num = getRandomInt(0, 100);
   const answer = isPrime(num) ? 'yes' : 'no';
   const question = String(num);
@@ -27,6 +27,6 @@ const getGamePrimePair = () => {
 };
 
 const startGamePrime = () => {
-  startEngine(description, getGamePrimePair);
+  playGame(description, getGameData);
 };
 export default startGamePrime;
